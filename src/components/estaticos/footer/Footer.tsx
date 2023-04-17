@@ -1,9 +1,12 @@
 import React from "react";
+
 import { Grid, Typography } from "@material-ui/core";
 import { Box } from "@mui/material";
 import EmailIcon from "@material-ui/icons/Email";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import InstagramIcon from "@material-ui/icons/Instagram";
+
 import "./Footer.css";
 
 function Footer() {
@@ -36,6 +39,10 @@ function Footer() {
               <a href="https://github.com/am3rco" target="_blank">
                 <GitHubIcon className="icons" />
               </a>
+              <a href="https://www.instagram.com/am3rco" target="_blank">
+                <InstagramIcon className="icons" />
+              </a>
+
               <a href="https://mail.google.com" target="_blank">
                 <EmailIcon className="icons" />
               </a>

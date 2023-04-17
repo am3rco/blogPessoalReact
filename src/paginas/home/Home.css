@@ -1,28 +1,8 @@
-/* Reseta toda a pagina */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  background-color: #f5f5dc;
-  width: 100vw;
-  height: 100vh;
-}
-
-.title {
-  color: blue;
-  text-align: center;
-}
-
-.img {
-  width: 500px;
-  height: 500px;
-  margin: 0 auto;
-  /* Define a largura e a altura da imagem conforme as minhas necessidades */
-  display: block;
-  /* Transforma a imagem num quadrado, posicionando a partir do centro */
-  object-fit: cover;
-  object-position: center;
+  background-color: white;
 }

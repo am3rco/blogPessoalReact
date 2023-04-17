@@ -33,7 +33,7 @@ function Footer() {
               </Typography>
             </Box>
             <Box className="rodape">
-              <a href="https://github.com/JoasChoque" target="_blank">
+              <a href="https://github.com/am3rco" target="_blank">
                 <GitHubIcon className="icons" />
               </a>
               <a href="https://mail.google.com" target="_blank">
@@ -59,14 +59,14 @@ function Footer() {
               </Typography>
             </Box>
             <Box>
-              <a target="_blank" href="https://github.com/JoasChoque">
+              <a target="_blank" href="https://github.com/am3rco">
                 <Typography
                   variant="subtitle2"
                   gutterBottom
                   className="texto"
                   align="center"
                 >
-                  Joas Choque
+                  Marco Antônio
                 </Typography>
               </a>
             </Box>

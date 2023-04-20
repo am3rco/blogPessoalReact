@@ -54,7 +54,7 @@ function Login() {
               </Typography>
             </Box>
 
-            <Link to="/cadastro" style={{ color: "black" }}>
+            <Link to="/cadastrousuario" style={{ color: "black" }}>
               <Typography variant="subtitle1" gutterBottom className="cadastro">
                 Cadastre-se
               </Typography>

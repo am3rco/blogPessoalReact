@@ -1,0 +1,51 @@
+.grid {
+  direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.image2 {
+  background-image: url("/public/329957716_1938704323149618_3102664949567603342_n.jpg");
+  background-repeat: no-repeat;
+  width: 100vh;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.grid-aligncenter {
+  text-align: center;
+}
+
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.titulo-cadastro {
+  font-weight: bold !important;
+}
+
+.btn-cancelar {
+  margin-right: 30px !important;
+  background-color: #ff6d60 !important;
+  color: white !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.btn-cadastrar {
+  background-color: #ff6d60 !important;
+  color: white !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.btn-cadastrar:hover,
+.btn-cancelar:hover {
+  color: gainsboro !important;
+}
+
+label#nome,
+label#email,
+label#senhaCadastro,
+label#confirmarSenha {
+  color: black;
+}

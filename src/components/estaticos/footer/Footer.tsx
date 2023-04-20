@@ -12,25 +12,14 @@ import "./Footer.css";
 function Footer() {
   return (
     <>
-      <Grid
-        container
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-      >
+      <Grid container className="container-centerow, gridcontainer-center">
         <Grid alignItems="center" item xs={12}>
           <Box className="box1">
-            <Box
-              paddingTop={3}
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-            >
+            <Box paddingTop={3} className="box gridcontainer-center">
               <Typography
                 variant="h5"
-                align="center"
                 gutterBottom
-                className="texto"
+                className="box_text-align box_text-white"
               >
                 Contate-me pelas redes sociais!
               </Typography>
@@ -58,9 +47,8 @@ function Footer() {
             <Box paddingTop={1}>
               <Typography
                 variant="subtitle2"
-                align="center"
                 gutterBottom
-                className="texto"
+                className="box_text-align"
               >
                 © 2023 Copyright:
               </Typography>
@@ -70,8 +58,7 @@ function Footer() {
                 <Typography
                   variant="subtitle2"
                   gutterBottom
-                  className="texto"
-                  align="center"
+                  className="box_text-align box_text-black"
                 >
                   Marco Antônio
                 </Typography>

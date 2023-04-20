@@ -9,15 +9,15 @@ import "./Navbar.css";
 function Navbar() {
   return (
     <>
-      <AppBar position="static" className="bg-color">
+      <AppBar className="appbar-static bg-color">
         <Toolbar variant="dense" className="container">
           <Box className="itens">
-            <Typography variant="h5" color="inherit" className="cursor">
+            <Typography variant="h5" className="cursor">
               BlogPessoal
             </Typography>
           </Box>
 
-          <Box display="flex" justifyContent="center">
+          <Box className="box-flexcenter">
             <Box mx={1} className="itens">
               <Typography variant="h6" className="color-itens">
                 Home
@@ -39,6 +39,13 @@ function Navbar() {
               </Typography>
             </Box>
           </Box>
+          <Link to="/login" className="text-decorator-none">
+            <Box mx={1} className="itens itens_logout-color">
+              <Typography variant="h6" className="color-itens">
+                Logout
+              </Typography>
+            </Box>
+          </Link>
         </Toolbar>
       </AppBar>
     </>

@@ -2,6 +2,10 @@
   background-color: blueviolet !important;
 }
 
+.appbar-static {
+  position: static;
+}
+
 .container {
   display: flex;
   justify-content: space-around;
@@ -9,6 +13,16 @@
 
 .itens h5 {
   font-weight: bold;
+  color: inherit;
+}
+
+.box-flexcenter {
+  display: flex;
+  justify-content: center;
+}
+
+.itens_logout-color {
+  color: white !important;
 }
 
 .color-itens {

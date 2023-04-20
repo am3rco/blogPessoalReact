@@ -1,3 +1,13 @@
+.container-row {
+  direction: row;
+}
+
+.gridcontainer-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .rodape {
   display: flex;
   align-items: center;
@@ -23,6 +33,14 @@ a {
   height: 60px;
 }
 
-.texto {
+.box_text-white {
   color: white;
+}
+
+.box_text-black {
+  color: black;
+}
+
+.box_text-align {
+  text-align: center;
 }

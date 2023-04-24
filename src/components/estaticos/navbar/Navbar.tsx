@@ -1,12 +1,21 @@
 import React from "react";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import { Box } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useLocalStorage from "react-use-localstorage";
 
 import "./Navbar.css";
 
-//variant = "h5" -> transforma o texto em um h5
 function Navbar() {
+  const [token, setToken] = useLocalStorage("token");
+  let navigate = useNavigate();
+
+  function goLogout() {
+    setToken("");
+    alert("Usuário deslogado");
+    navigate("/login");
+  }
+
   return (
     <>
       <AppBar className="appbar-static bg-color">
@@ -18,34 +27,41 @@ function Navbar() {
           </Box>
 
           <Box className="box-flexcenter">
+            <Link to="/home" className="text-decorator-none">
+              <Box mx={1} className="itens">
+                <Typography variant="h6" className="color-itens">
+                  Home
+                </Typography>
+              </Box>
+            </Link>
             <Box mx={1} className="itens">
-              <Typography variant="h6" className="color-itens">
-                Home
-              </Typography>
+              <Link to="/posts" className="text-decorator-none">
+                <Typography variant="h6" className="color-itens">
+                  Postagens
+                </Typography>
+              </Link>
             </Box>
             <Box mx={1} className="itens">
-              <Typography variant="h6" className="color-itens">
-                Postagens
-              </Typography>
+              <Link to="/temas" className="text-decorator-none">
+                <Typography variant="h6" className="color-itens">
+                  Temas
+                </Typography>
+              </Link>
             </Box>
             <Box mx={1} className="itens">
-              <Typography variant="h6" className="color-itens">
-                Temas
-              </Typography>
-            </Box>
-            <Box mx={1} className="itens">
-              <Typography variant="h6" className="color-itens">
-                Cadastrar Tema
-              </Typography>
+              <Link to="/formularioTema" className="text-decorator-none">
+                <Typography variant="h6" className="color-itens">
+                  Cadastrar Tema
+                </Typography>
+              </Link>
             </Box>
           </Box>
-          <Link to="/login" className="text-decorator-none">
-            <Box mx={1} className="itens itens_logout-color">
-              <Typography variant="h6" className="color-itens">
-                Logout
-              </Typography>
-            </Box>
-          </Link>
+
+          <Box mx={1} className="itens itens_logout-color" onClick={goLogout}>
+            <Typography variant="h6" className="color-itens">
+              Logout
+            </Typography>
+          </Box>
         </Toolbar>
       </AppBar>
     </>

@@ -10,12 +10,15 @@ export const cadastroUsuario = async (url: any, dados: any, setDado: any) => {
   // Faz a requisição e aguarda a resposta
   const resposta = await api.post(url, dados);
   setDado(resposta.data); // Busca na resposta o token que tá dentro da data
-  // So restorna o token se o usuario existir, senão dará erro
+  // So retorna o token se o usuario existir, senão dará erro
 };
 
 export const login = async (url: any, dados: any, setDado: any) => {
-  // Faz a requisição e aguarda a resposta
   const resposta = await api.post(url, dados);
-  setDado(resposta.data); // Busca na resposta o token que tá dentro da data
-  // So restorna o token se o usuario existir, senão dará erro
+  setDado(resposta.data.token);
+};
+
+export const busca = async (url: any, setDado: any, header: any) => {
+  const resposta = await api.post(url, header);
+  setDado(resposta.data);
 };

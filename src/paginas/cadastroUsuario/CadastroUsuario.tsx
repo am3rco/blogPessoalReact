@@ -1,10 +1,63 @@
-import React from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import { Grid, Typography, Button, TextField } from "@material-ui/core";
 import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import User from "../../models/User";
+import { cadastroUsuario } from "../../services/Service";
 import "./CadastroUsuario.css";
 
 function CadastroUsuario() {
+  let history = useNavigate();
+  const [confirmarSenha, setConfirmarSenha] = useState<String>(""); //verifica se o valor do campo senha é igual ao valor do campo confirmar senha
+  const [user, setUser] = useState<User>({
+    //contém as informações que serão enviadas para cadastro
+    id: 0,
+    nome: "",
+    usuario: "",
+    senha: "",
+    foto: "",
+  });
+
+  const [userResult, setUserResult] = useState<User>({
+    //3º state - armazena os valores do retorno da API
+    id: 0,
+    nome: "",
+    usuario: "",
+    senha: "",
+    foto: "",
+  });
+
+  useEffect(() => {
+    //é acionado após o envio das informações
+    if (userResult.id != 0) {
+      //se o id for diferente de 0, a função redireciona para a tela de login, pois entende que foi concluido um cadastro com informações reais e não mais as informações padrões
+      history("/login");
+    }
+  }, [userResult]);
+
+  function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>) {
+    setConfirmarSenha(e.target.value); //armazena o valor digitado no campo confirmarSenha
+  }
+
+  function updatedModel(e: ChangeEvent<HTMLInputElement>) {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
+  }
+  async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+    e.preventDefault(); //previne o comportamento padrão do botão para não atualizar a tela
+    if (confirmarSenha == user.senha) {
+      //compara os campos confirmarSenha e senha
+      await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult);
+      alert("Usuário cadastrado com sucesso");
+    } else {
+      alert("Dados inválidos. Favor verificar as informações de cadastro.");
+    }
+  }
+
   return (
     <Grid container className="grid">
       <Grid item xs={6} className="image2"></Grid>
@@ -21,6 +74,8 @@ function CadastroUsuario() {
               Cadastrar
             </Typography>
             <TextField
+              value={user.nome}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               id="nome"
               label="Nome"
               variant="outlined"
@@ -29,6 +84,8 @@ function CadastroUsuario() {
               fullWidth
             />
             <TextField
+              value={user.usuario}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               id="email"
               label="Email"
               variant="outlined"
@@ -37,6 +94,8 @@ function CadastroUsuario() {
               fullWidth
             />
             <TextField
+              value={user.senha}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               id="senhaCadastro"
               label="Senha"
               variant="outlined"
@@ -46,6 +105,8 @@ function CadastroUsuario() {
               fullWidth
             />
             <TextField
+              value={confirmarSenha}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               id="confirmarSenha"
               label="Confirmar Senha"
               variant="outlined"

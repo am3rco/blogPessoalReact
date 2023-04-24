@@ -14,17 +14,25 @@ import useLocalStorage from "react-use-localstorage";
 import { busca } from "../../../services/Service";
 
 function ListaTema() {
+  //Array por conta de ser uma lista e é uma relação
+  //o valor na variavel fica: temas = [{id:0},{id:1}...]
   const [temas, setTemas] = useState<Tema[]>([]);
+
   const [token, setToken] = useLocalStorage("token");
+
   let navigate = useNavigate();
 
+  //Redirecionando o usuário para o login caso ele não esteja logado
   useEffect(() => {
-    if (token == "") {
-      alert("Você precisa estar logado");
+    if (token === "") {
+      alert(
+        "Você precisa estar logado para ter acesso! Por favor, faça ologin"
+      );
       navigate("/login");
     }
   }, [token]);
 
+  //function de getTemas
   async function getTema() {
     await busca(`/temas`, setTemas, {
       headers: {
@@ -33,6 +41,7 @@ function ListaTema() {
     });
   }
 
+  //
   useEffect(() => {
     getTema();
   }, [temas.length]);

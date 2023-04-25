@@ -18,7 +18,7 @@ function Navbar() {
 
   return (
     <>
-      <AppBar className="appbar-static bg-color">
+      <AppBar className="static bg-color">
         <Toolbar variant="dense" className="container">
           <Box className="itens">
             <Typography variant="h5" className="cursor">
@@ -38,6 +38,13 @@ function Navbar() {
               <Link to="/posts" className="text-decorator-none">
                 <Typography variant="h6" className="color-itens">
                   Postagens
+                </Typography>
+              </Link>
+            </Box>
+            <Box mx={1} className="itens">
+              <Link to="/formularioPostagem" className="text-decorator-none">
+                <Typography variant="h6" className="color-itens">
+                  Cadastrar Postagens
                 </Typography>
               </Link>
             </Box>

@@ -26,22 +26,20 @@ function ListaTema() {
   useEffect(() => {
     if (token === "") {
       alert(
-        "Você precisa estar logado para ter acesso! Por favor, faça ologin"
+        "Você precisa estar logado para ter acesso! Para prosseguir, faça o login"
       );
       navigate("/login");
     }
   }, [token]);
 
-  //function de getTemas
   async function getTema() {
-    await busca("/temas", setTemas, {
+    await busca(`/temas`, setTemas, {
       headers: {
         Authorization: token,
       },
     });
   }
 
-  //
   useEffect(() => {
     getTema();
   }, [temas.length]);

@@ -2,10 +2,9 @@
   background-color: blueviolet !important;
 }
 
-.appbar-static {
-  position: static;
+.static {
+  position: static !important;
 }
-
 .container {
   display: flex;
   justify-content: space-around;

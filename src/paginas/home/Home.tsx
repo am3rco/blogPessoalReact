@@ -5,6 +5,8 @@ import TabPostagem from "../../components/postagens/tabpostagens/TabPostagem";
 
 import { Button, Grid, Typography } from "@material-ui/core";
 import { Box } from "@mui/material";
+import { Link } from "react-router-dom";
+
 function Home() {
   return (
     <>
@@ -29,10 +31,16 @@ function Home() {
             </Typography>
           </Box>
           <Box className="boxbottom-flex">
-            <Box marginRight={1}></Box>
-            <Button variant="outlined" className="botao">
-              Ver Postagens
-            </Button>
+            <Link to="/formularioPostagem">
+              <Button variant="outlined" className="botao">
+                Criar Novas Postagens
+              </Button>
+            </Link>
+            <Link to="/posts">
+              <Button variant="outlined" className="botao">
+                Ver Postagens
+              </Button>
+            </Link>
           </Box>
         </Grid>
         <Grid item xs={6}>

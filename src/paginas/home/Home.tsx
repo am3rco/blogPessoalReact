@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import "./Home.css";
 import TabPostagem from "../../components/postagens/tabpostagens/TabPostagem";
 
 import { Button, Grid, Typography } from "@material-ui/core";
 import { Box } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { TokenState } from "../../store/tokens/tokensReducer";
+import ModalPostagem from "../../components/postagens/modalPostagem/ModalPostagem";
 
 function Home() {
+  let navigate = useNavigate();
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
+
+  useEffect(() => {
+    if (token == "") {
+      alert("Você precisa estar logado");
+      navigate("login");
+    }
+  }, [token]);
+
   return (
     <>
       <Grid container className="gridcontainer grid-align bg-home">
@@ -30,12 +45,10 @@ function Home() {
               Expresse aqui os seus pensamentos e opiniões!
             </Typography>
           </Box>
-          <Box className="boxbottom-flex">
-            <Link to="/formularioPostagem">
-              <Button variant="outlined" className="botao">
-                Criar Novas Postagens
-              </Button>
-            </Link>
+          <Box display="flex" justifyContent="center">
+            <Box marginRight={1}>
+              <ModalPostagem />
+            </Box>
             <Link to="/posts">
               <Button variant="outlined" className="botao">
                 Ver Postagens

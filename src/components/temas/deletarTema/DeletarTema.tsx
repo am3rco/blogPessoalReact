@@ -12,14 +12,18 @@ import { useNavigate, useParams } from "react-router-dom";
 import useLocalStorage from "react-use-localstorage";
 import Tema from "../../../models/Tema";
 import { buscaId, deleteId } from "../../../services/Service";
+import { useSelector } from "react-redux";
+import { TokenState } from "../../../store/tokens/tokensReducer";
 
 function DeletarTema() {
   let navigate = useNavigate();
 
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
+
   //useParams -> hook responsavel para o envio do parametro ao chamar os métodos (id)
   const { id } = useParams<{ id: string }>();
-
-  const [token, setToken] = useLocalStorage("token");
 
   const [tema, setTema] = useState<Tema>();
 

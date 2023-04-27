@@ -5,6 +5,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import useLocalStorage from "react-use-localstorage";
 import Tema from "../../../models/Tema";
 import { buscaId, post, put } from "../../../services/Service";
+import { useSelector } from "react-redux";
+import { TokenState } from "../../../store/tokens/tokensReducer";
 
 function CadastroTema() {
   let navigate = useNavigate();
@@ -12,7 +14,9 @@ function CadastroTema() {
   //useParams -> hook responsavel para o envio do parametro ao chamar os métodos (id)
   const { id } = useParams<{ id: string }>();
 
-  const [token, setToken] = useLocalStorage("token");
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
 
   const [tema, setTema] = useState<Tema>({
     id: 0,

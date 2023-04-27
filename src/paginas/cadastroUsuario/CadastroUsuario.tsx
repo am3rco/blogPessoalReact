@@ -63,7 +63,7 @@ function CadastroUsuario() {
       <Grid item xs={6} className="image2"></Grid>
       <Grid item xs={6} alignItems="center">
         <Box paddingX={20}>
-          <form>
+          <form onSubmit={onSubmit}>
             <Typography
               className="titulo-cadastro"
               variant="h3"
@@ -86,10 +86,10 @@ function CadastroUsuario() {
             <TextField
               value={user.usuario}
               onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-              id="email"
+              id="usuario"
               label="Email"
               variant="outlined"
-              name="email"
+              name="usuario"
               margin="normal"
               fullWidth
             />
@@ -106,7 +106,9 @@ function CadastroUsuario() {
             />
             <TextField
               value={confirmarSenha}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                confirmarSenhaHandle(e)
+              }
               id="confirmarSenha"
               label="Confirmar Senha"
               variant="outlined"

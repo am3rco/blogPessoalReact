@@ -14,6 +14,7 @@ import useLocalStorage from "react-use-localstorage";
 import { busca } from "../../../services/Service";
 import { useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/tokensReducer";
+import { toast } from "react-toastify";
 
 function ListaTema() {
   //Array por conta de ser uma lista e é uma relação
@@ -29,9 +30,16 @@ function ListaTema() {
   //Redirecionando o usuário para o login caso ele não esteja logado
   useEffect(() => {
     if (token === "") {
-      alert(
-        "Você precisa estar logado para ter acesso! Para prosseguir, faça o login"
-      );
+      toast.error("Você precisa estar logado", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "colored",
+      });
       navigate("/login");
     }
   }, [token]);

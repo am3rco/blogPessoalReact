@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import User from "../../models/User";
 import { cadastroUsuario } from "../../services/Service";
 import "./CadastroUsuario.css";
+import { toast } from "react-toastify";
 
 function CadastroUsuario() {
   let history = useNavigate();
@@ -52,9 +53,30 @@ function CadastroUsuario() {
     if (confirmarSenha == user.senha) {
       //compara os campos confirmarSenha e senha
       await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult);
-      alert("Usuário cadastrado com sucesso");
+      toast.success("Usucario cadastrado com sucesso", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "colored",
+      });
     } else {
-      alert("Dados inválidos. Favor verificar as informações de cadastro.");
+      toast.error(
+        "Dados inválidos. Favor verificar as informações de cadastro.",
+        {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: undefined,
+          theme: "colored",
+        }
+      );
     }
   }
 
